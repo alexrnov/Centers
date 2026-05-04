@@ -1,14 +1,31 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Base.Theme.MemoCards" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">#B2B2B2</item>
-        <item name="android:windowBackground">#D2D2D2</item>
-    </style>
-    <style name="Theme.MemoCards" parent="Base.Theme.MemoCards" />
+    <style name="Base.Theme.Centers" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Цвет фона -->
+        <item name="android:windowBackground">#F2F2F2</item>
 
-    <style name="ButtonStyle" parent="Widget.MaterialComponents.Button.TextButton">
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textAllCaps">true</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
+        <!-- Цвет тулбара, цвет ползунков -->
+        <item name="colorPrimary">#7A7A7A</item>
+
+        <!-- Цвет фона PopupMenu -->
+        <item name="popupMenuBackground">@color/statistics_errors_head</item>
+
+        <!-- Размер и цвет шрифта пунктов для PopupMenu -->
+        <item name="textAppearanceLargePopupMenu">@style/PopupMenuTextStyle</item>
+
+        <!-- Отключает перекрытие тулбара всплывающим меню PopupMenu -->
+        <item name="overlapAnchor">false</item>
+        <item name="android:overlapAnchor">false</item>
+    </style>
+
+    <style name="PopupMenuTextStyle" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textColor">@color/empty_text</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="SliderStyle" parent="Widget.Material3.Slider">
+        <!-- Цвет неактивной части -->
+        <item name="trackColorInactive">#C5C5C5</item>
+        <!-- Опционально для активной части, по умолчанию совпадает с colorPrimary -->
+        <!-- <item name="trackColorActive">@color/statistics_date_item</item> -->
     </style>
 </resources>

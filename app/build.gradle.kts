@@ -1,6 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    // Плагин Jetpack Compose
+    alias(libs.plugins.compose.compiler)
+
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -27,17 +31,19 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "21"
     }
     buildFeatures {
         // включить функцию генерирации классов для доступа к виджетам в XML-разметке
         viewBinding = true
         // включить функцию Data Binding
         dataBinding = true
+        // включить Jetpack Compose
+        compose = true
     }
 
     testOptions {
@@ -55,8 +61,29 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.fragment.ktx)
+
+    implementation(platform("io.insert-koin:koin-bom:4.0.3"))
+    implementation("io.insert-koin:koin-android")
+    implementation("io.insert-koin:koin-androidx-compose")
+
+    implementation(libs.androidx.adaptive)
+    //implementation(libs.androidx.material3.adaptive)
+
+    // 2. Для класса WindowSizeClass и его констант (например, WIDTH_DP_MEDIUM_LOWER_BOUND)
+    implementation(libs.androidx.window)
+
     implementation(libs.androidx.room.runtime)
     annotationProcessor(libs.androidx.room.compiler)
+
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.foundation.layout) // или новее
+    implementation(libs.androidx.material3)
+
+    implementation("androidx.compose.material:material-icons-extended:1.7.8")
 
     testImplementation(libs.junit)
     testImplementation(libs.mockito.core)
@@ -70,6 +97,11 @@ dependencies {
     androidTestImplementation(libs.androidx.junit.v130) // JUnit Extensions
     androidTestImplementation(libs.androidx.truth) // Truth Extensions (Truth для проверок)
 
+    implementation(libs.androidx.navigation.compose)
+    // Сама библиотека для работы с JSON / навигацией
+    implementation(libs.kotlinx.serialization.json)
+
+
     // Core библиотека
     androidTestImplementation(libs.androidx.core) // для инструментальных тестов
     testImplementation(libs.androidx.core) // для локальных
@@ -80,4 +112,8 @@ dependencies {
     androidTestImplementation(libs.androidx.uiautomator) // Тестирование с UI Automator
     testImplementation(kotlin("test"))
     testImplementation(libs.robolectric)
+
+    implementation(project(":presentation"))
+    implementation(project(":domain"))
+    implementation(project(":data"))
 }

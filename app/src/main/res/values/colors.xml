@@ -2,6 +2,26 @@
 <resources>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="pink">#FF99E2</color>
+    <color name="blue">#0077FF</color>
+    <color name="lightBlue">#47DCFF</color>
+    <color name="green">#1AFF00</color>
+    <color name="yellow">#DBD700</color>
+    <color name="orange">#FF9500</color>
+    <color name="red">#D05454</color>
+
+    <color name="disablePink">#FFD6EF</color>
+    <color name="disableBlue">#A7D1FF</color>
+    <color name="disableLightBlue">#CBEEFF</color>
+    <color name="disableGreen">#BCFFB3</color>
+    <color name="disableYellow">#EBEA58</color>
+    <color name="disableOrange">#FFCE91</color>
+    <color name="disableRed">#E99090</color>
+
+
+
+
+
     <color name="game_button">#88CC6C</color>
     <color name="game_button_pressed">#95D978</color>
     <color name="button_pressed">#FFAEAE</color>
